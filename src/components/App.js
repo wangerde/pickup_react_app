@@ -13,8 +13,12 @@ const App = () => {
                 <div className="column eight wide">
                     <SongDetail /> 
                 </div>
-            </div>      
-            <Game />
+            </div >
+            <div className="ui row">
+                <div className="column eight wide">
+                    <Game />
+                </div> 
+            </div>     
         </div>
     );
 };
