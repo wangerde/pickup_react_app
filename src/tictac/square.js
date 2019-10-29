@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 class Square extends React.Component {
     constructor(props) {
@@ -6,12 +6,13 @@ class Square extends React.Component {
       this.state = {
         value: null,
       }
+      console.log(this);
     }
     render() {
       return (
         <button 
           className="square" 
-          onClick={() => this.setState({value: 'X'})}
+          onClick={() => {this.setState({value: 'X'});console.log(this)}}
         >
           {this.state.value}
         </button>
