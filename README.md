@@ -1,4 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 重新pickup起react，开始于10/29/2019
 
 ## Available Scripts
 
