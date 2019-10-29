@@ -1,6 +1,7 @@
 import React from 'react';
-import SongList from './SongList';
-import SongDetail from './songDetail';
+import SongList from '../song/SongList';
+import SongDetail from '../song/songDetail';
+import Game from '../tictac/game';
 
 const App = () => {
     return( 
@@ -12,7 +13,8 @@ const App = () => {
                 <div className="column eight wide">
                     <SongDetail /> 
                 </div>
-            </div>
+            </div>      
+            <Game />
         </div>
     );
 };
