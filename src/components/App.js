@@ -14,7 +14,7 @@ const App = () => {
                     <SongDetail /> 
                 </div>
             </div >
-            <div className="ui row">
+            <div className="ui row grid">
                 <div className="column eight wide">
                     <Game />
                 </div> 
