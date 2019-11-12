@@ -6,3 +6,21 @@
     padding: 20px;
     margin: 10px;
 }
+
+.text:focus {	
+    box-shadow: inset 0 0 0 1px #fff,
+        0 0 0 4px #fff,
+        3px -3px 30px #1beabd, 
+        -3px 3px 30px #10abff;
+}
+.text {
+    padding: 0 10px;
+    margin: 0 -10px;
+    height: 30px;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-color: rgba(0, 0, 0, .15);
+    background-color: white;
+    font-size: 16px;
+    width: 100%;
+}

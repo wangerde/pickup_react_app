@@ -5,7 +5,8 @@ const NameAge = (props) => {
   return (
     <div className="person">
       <h1>{props.name}</h1>
-      <p>Your age: {props.age}</p>
+      <p onClick={props.click}>Your age: {props.age}</p>
+      <input className="text" type="text" onChange={props.changed} value={props.name} />
     </div>
   );
 }
