@@ -6,6 +6,8 @@ import SongDetail from '../components/song/songDetail';
 import Game from '../components/tictac/game';
 import NameAges from '../components/nameAges/nameages'; 
 import Cockpit from '../components/Cockpit/Cockpit'; 
+import Incubee from '../components/incubee/incubee'; 
+
 import './App.css';
 
 class App extends Component {
@@ -86,6 +88,11 @@ class App extends Component {
                              clicked={this.togglenameagesHandler} />
                 </div>
                 {nameages}
+                <div className="ui row">
+                    <Incubee name={this.state.incubee[0].name}
+                             age={this.state.incubee[0].age}
+                             process={this.state.incubee[0].process} />
+                </div>
             </div>
         );
     }
