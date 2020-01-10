@@ -11,6 +11,8 @@ import Incubee from '../components/incubee/incubee';
 import './App.css';
 
 class App extends Component {
+
+
     state = {
         nameages: [
             { id:'1', name: 'Xin', age: 28 },
@@ -18,7 +20,13 @@ class App extends Component {
             { id:'3', name: 'Ruyan', age: 58 }
         ],
         someother: 'some other state',
-        shownameages: false
+        shownameages: false,
+
+        incubee: [
+            { name: 'Gavin', age: 32, process: 0.3},
+            { name: 'Huan', age: 27, process: 0.1},
+            { name: 'Dudu', age: 23, process: 0.4}
+        ]
     }
 
     // 函数中内嵌函数，为了使用react 16.8新添加的功能 functional component中的
