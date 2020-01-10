@@ -6,7 +6,6 @@ import SongDetail from '../components/song/songDetail';
 import Game from '../components/tictac/game';
 import NameAges from '../components/nameAges/nameages'; 
 import Cockpit from '../components/Cockpit/Cockpit'; 
-import Incubee from '../components/incubee/incubee'; 
 import './App.css';
 
 class App extends Component {
@@ -17,13 +16,7 @@ class App extends Component {
             { id:'3', name: 'Ruyan', age: 58 }
         ],
         someother: 'some other state',
-        shownameages: false,
-
-        incubee: [
-            { name: 'Gavin', age: 32, process: 0.3},
-            { name: 'Huan', age: 27, process: 0.1},
-            { name: 'Dudu', age: 23, process: 0.4}
-        ]
+        shownameages: false
     }
 
     // 函数中内嵌函数，为了使用react 16.8新添加的功能 functional component中的
@@ -93,11 +86,6 @@ class App extends Component {
                              clicked={this.togglenameagesHandler} />
                 </div>
                 {nameages}
-                <div className="ui row">
-                    <Incubee name={this.state.incubee[0].name}
-                             age={this.state.incubee[0].age}
-                             process={this.state.incubee[0].process} />
-                </div>
             </div>
         );
     }
