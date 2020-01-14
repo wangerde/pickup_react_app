@@ -1,15 +1,24 @@
-import React from 'react';
-import Radium from 'radium';
-import './nameage.css';
+import React, { Component } from 'react';
+import Aux from '../../../hoc/Aux';
+import withClass from '../../../hoc/withClass';
 
-const NameAge = (props) => {
-  return (
-    <div className="nameage">
-      <h1>{props.name}</h1>
-      <p onClick={props.click}>Your age: {props.age}</p>
-      <input className="text" type="text" onChange={props.changed} value={props.name} />
-    </div>
-  );
+import classes from './nameage.css';
+
+class NameAge extends Component {
+  static getDerivedStateFromProps(props, state) {
+    console.log('Nameage.js getDerivedStateFromProps');
+    return null;
+  }
+
+  render() {
+    return (
+      <Aux>
+        <h1>{this.props.name}</h1>,
+        <p onClick={this.props.click}>Your age: {this.props.age}</p>,
+        <input className="text" type="text" onChange={this.props.changed} value={this.props.name} />
+      </Aux>
+    );
+  }
 }
 
-export default Radium(NameAge);
+export default withClass(NameAge, classes.NameAge);
