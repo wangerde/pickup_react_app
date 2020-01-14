@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 
 const cockpit = (props) => {
+    //useState();
+    useEffect(()=> {
+        console.log('cockpit useEffect');
+        
+    }, [props.nameages]);
+    //上面[props.nameages]这个参数表明 useEffect只有在nameages更新时才会被invoke
+
     const classes = [];
     if(props.nameages.length <= 2){
         classes.push('red');

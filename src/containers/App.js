@@ -8,6 +8,10 @@ import NameAges from '../components/nameAges/nameages';
 import Cockpit from '../components/Cockpit/Cockpit'; 
 import Incubee from '../components/incubee/incubee'; 
 
+import withClass from '../hoc/withClass';
+import Aux from '../hoc/Aux';
+import classes from './App.css';
+
 import './App.css';
 
 class App extends Component {
@@ -19,6 +23,7 @@ class App extends Component {
         ],
         someother: 'some other state',
         shownameages: false,
+        showCockpit: true,
 
         incubee: [
             { name: 'Gavin', age: 32, process: 0.3},
@@ -27,6 +32,15 @@ class App extends Component {
         ]
     }
 
+    componentDidUpdate() {
+        console.log('component did update');
+    }
+    
+
+    shouldComponentUpdate() {
+        console.log('should component update');
+        return true;
+    }
     // 函数中内嵌函数，为了使用react 16.8新添加的功能 functional component中的
     // state hooks， 有了这些hooks，functional component不再叫stateless component了
     // 因为可以在component中修改state 我不太明白为什么要这么搞 这样一来 functional和class
@@ -73,7 +87,7 @@ class App extends Component {
         }
 
         return( 
-            <div className="ui container grid"> 
+            <Aux className="ui container grid"> 
                 <div className="ui row">
                     <div className="column eight wide">
                         <SongList />
@@ -89,9 +103,16 @@ class App extends Component {
                 </div> 
 
                 <div className="ui row">
+                    <button onClick={
+                        ()=>{
+                            this.setState({ showCockpit: false });
+                        }
+                    }>Remote Cockpit</button>
+                    {this.state.showCockpit ? (
                     <Cockpit shownameages={this.state.shownameages}
                              nameages={this.state.nameages}
                              clicked={this.togglenameagesHandler} />
+                    ) : null }
                 </div>
                 {nameages}
                 <div className="ui row">
@@ -99,9 +120,9 @@ class App extends Component {
                              age={this.state.incubee[0].age}
                              process={this.state.incubee[0].process} />
                 </div>
-            </div>
+            </Aux>
         );
     }
     };
 
-export default Radium(App);
+export default withClass(App, classes.App);

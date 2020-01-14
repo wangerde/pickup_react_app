@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import NameAge from './nameAge/nameage';
 
-const nameages = (props) => 
-    props.nameages.map((nameage, index) => {
+class Nameages extends Component {
+    static getDerivedStateFromProps(props, state) {
+        console.log('Nameages.js getDerivedStateFromProps');
+        return null;
+    }
+
+    componentWillUnmount() {
+        console.log('nameageS will unmount');
+    }
+
+    render() {
+        console.log('nameages rendering...');
+        return this.props.nameages.map((nameage, index) => {    
         return <NameAge 
-            click={()=>props.clicked(index)}
+            click={()=>this.props.clicked(index)}
             name={nameage.name} 
             age={nameage.age}
             key={nameage.id}
-            changed={(event)=> props.changed(event, nameage.id)} />
+            changed={(event)=> this.props.changed(event, nameage.id)} />
     });
+    }
+}
 
-export default nameages;
+export default Nameages;
