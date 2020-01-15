@@ -1,9 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 
 const cockpit = (props) => {
+    const toggleBtnRef = useRef(null);
+    
+
     //useState();
     useEffect(()=> {
+        toggleBtnRef.current.click();
         console.log('cockpit useEffect');
         
     }, [props.nameages]);
@@ -23,9 +27,13 @@ const cockpit = (props) => {
                 <p className={classes.join(' ')}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis mauris quis odio venenatis molestie. Nam porttitor a diam in placerat. Nam sem nisl, pulvinar eget leo non, dignissim rhoncus velit. Praesent suscipit ligula odio, id laoreet odio porta sed. Proin varius sed augue malesuada fermentum.</p>
             </div>
             <button 
+                ref={toggleBtnRef}
                 className="ui switchName"
                 onClick={props.clicked}
-            >改名字</button>  
+            >改名字</button> 
+            <button
+                onClick={props.login}    
+            >Login</button> 
         </div>
     )
 }

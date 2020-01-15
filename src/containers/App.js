@@ -24,6 +24,8 @@ class App extends Component {
         someother: 'some other state',
         shownameages: false,
         showCockpit: true,
+        counter: 0,
+        authenticated: false,
 
         incubee: [
             { name: 'Gavin', age: 32, process: 0.3},
@@ -59,7 +61,10 @@ class App extends Component {
         const nameages = [...this.state.nameages];
         nameages[nameageIndex] = nameage;
 
-        this.setState({nameages: nameages})
+        this.setState((prevState, props)=>{
+            return {nameages: nameages, counter: prevState.counter + 1
+            }
+        })
     }
 
     deletenameageHandler = (nameageIndex) => {
@@ -77,13 +82,19 @@ class App extends Component {
         })
     }
 
+    loginHandler = () => {
+        this.setState({authenticated: true});
+    }
+
     render() {
 
         let nameages = null;
         if(this.state.shownameages){
             nameages = <NameAges nameages={this.state.nameages}
                               clicked={this.deletenameageHandler}
-                              changed={this.nameChangedHandler} />
+                              changed={this.nameChangedHandler}
+                              isAuthenticated={this.state.authenticated}
+                              />
         }
 
         return( 
@@ -111,7 +122,9 @@ class App extends Component {
                     {this.state.showCockpit ? (
                     <Cockpit shownameages={this.state.shownameages}
                              nameages={this.state.nameages}
-                             clicked={this.togglenameagesHandler} />
+                             clicked={this.togglenameagesHandler}
+                             login={this.loginHandler}
+                             />
                     ) : null }
                 </div>
                 {nameages}

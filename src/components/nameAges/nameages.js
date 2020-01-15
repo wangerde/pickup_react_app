@@ -19,7 +19,9 @@ class Nameages extends Component {
             name={nameage.name} 
             age={nameage.age}
             key={nameage.id}
-            changed={(event)=> this.props.changed(event, nameage.id)} />
+            changed={(event)=> this.props.changed(event, nameage.id)} 
+            isAuth={this.props.isAuthenticated}
+        />
     });
     }
 }
